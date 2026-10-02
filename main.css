@@ -782,7 +782,7 @@ footer { border-top: 1px solid var(--border-color); padding: 80px 24px 60px 24px
     .metric-grid { grid-template-columns: 1fr; gap: 20px; }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767px), (max-width: 1024px) and (orientation: portrait) {
     .navbar { top: 12px; }
     .nav-container { width: 95%; padding: 8px 16px; border-radius: 999px; }
     .nav-links, .desktop-launch-btn { display: none !important; }

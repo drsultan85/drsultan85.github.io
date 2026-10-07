@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Cortexa | Clinical Intelligence</title>
+    
+    <link rel="icon" type="image/png" id="dynamic-favicon" href="dark-icon.png">
+    <link rel="apple-touch-icon" id="dynamic-apple-icon" href="dark-icon.png">
+    
+    <!-- Investor-Grade Typography: Plus Jakarta Sans for EN, Cairo for AR -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <!-- Ambient Dynamic Background -->
+    <div class="ambient-bg" id="ambientBg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Elegant Glass Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="brand">
+                <img src="logo.png" alt="Cortexa" class="brand-logo" onerror="this.style.display='none'">
+                <svg class="brand-fallback" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                <span>Cortexa</span>
+            </div>
+            
+            <div class="nav-links">
+                <a href="#synthesis" data-i18n="navSynthesis">Clinical Synthesis</a>
+                <a href="#platform" data-i18n="navPlatform">The Platform</a>
+                <a href="#enterprise" data-i18n="navEnterprise">Enterprise Scale</a>
+                <a href="#security" data-i18n="navSecurity">Security</a>
+            </div>
+
+            <!-- Header Actions -->
+            <div class="nav-actions">
+                <!-- Vertical Rectangular Glass Popover (Short Labels & Navbar Clearance) -->
+                <div class="desktop-glass-popover-wrapper" style="position: relative;">
+                    <button id="glassQuickToggleBtn" class="icon-btn" title="Adjust Glass Atmosphere" aria-label="Adjust Glass">
+                        <span class="material-symbols-rounded" style="font-size: 20px;">blur_on</span>
+                    </button>
+                    
+                    <div id="desktopGlassPopover" class="desktop-glass-popover hidden">
+                        <!-- Header showing only the short degree text -->
+                        <div class="glass-popover-header">
+                            <span id="desktopGlassLabel" class="glass-popover-indicator">REF</span>
+                        </div>
+                        
+                        <!-- Vertical Dashed Slider Stage (Dashes Positioned to the Left) -->
+                        <div class="vertical-slider-track-box">
+                            <div class="vertical-dashed-ruler" id="verticalDashedRuler">
+                                <div class="ruler-dash-step" data-deg="4" onclick="window.applyLandingGlassDegree(4);" title="Maximum"></div>
+                                <div class="ruler-dash-step" data-deg="3" onclick="window.applyLandingGlassDegree(3);" title="Refined"></div>
+                                <div class="ruler-dash-step" data-deg="2" onclick="window.applyLandingGlassDegree(2);" title="Subtle"></div>
+                                <div class="ruler-dash-step" data-deg="1" onclick="window.applyLandingGlassDegree(1);" title="Off"></div>
+                            </div>
+
+                            <input type="range" class="ctx-vertical-glass-slider" id="desktopGlassSlider" min="1" max="4" step="1" value="3">
+                        </div>
+                    </div>
+                </div>
+
+                <button id="themeToggle" class="icon-btn" aria-label="Toggle Theme">
+                    <span class="material-symbols-rounded dark-icon">dark_mode</span>
+                    <span class="material-symbols-rounded light-icon">light_mode</span>
+                </button>
+                
+                <a href="https://use-cortexa.app" class="btn-launch desktop-launch-btn">Launch Cortexa</a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
+                    <span class="m-line top-line"></span>
+                    <span class="m-line bot-line"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Minimalist Floating Mobile Menu Dropdown -->
+    <div class="mobile-menu-dropdown" id="mobileMenuOverlay">
+        <div class="mobile-nav-links">
+            <a href="#synthesis" class="mobile-link">Clinical Synthesis</a>
+            <a href="#platform" class="mobile-link">The Platform</a>
+            <a href="#enterprise" class="mobile-link">Enterprise Scale</a>
+            <a href="#security" class="mobile-link">Security</a>
+        </div>
+
+        <!-- Glass Atmosphere Intensity Control Slider -->
+        <div class="glass-setting-card" style="margin: 8px 0;">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:0.8rem; font-weight:700; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.5px;">Liquid Glass</span>
+                <span id="mobileGlassLabel" style="font-size:0.8rem; font-weight:700; color:var(--accent-blue);">Refined</span>
+            </div>
+            <input type="range" class="ctx-smooth-slider" id="mobileGlassSlider" min="1" max="4" step="1" value="3">
+        </div>
+
+        <div class="mobile-menu-cta">
+            <a href="https://use-cortexa.app" class="btn-launch mobile-launch-btn">Launch Cortexa</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content reveal-up">
+                <h1 class="hero-title">Cortexa: Medical AI<br>Engineered for Precision.</h1>
+                <p class="hero-subtitle">
+                    A unified medical workspace synthesizing real-time diagnostic reasoning, multi-organ pharmacokinetic modeling, and verified clinical decision support.
+                </p>
+                <div class="hero-buttons">
+                    <a href="https://use-cortexa.app" class="btn-launch large">Enter Workspace</a>
+                    <a href="#synthesis" class="btn-secondary large">Explore Architecture</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cortexa Clinical Synthesis (Exterior Deck & Dynamic Knowledge Matrix) -->
+    <section id="synthesis" class="mockup-section section-offset">
+        <div class="mockup-container reveal-up">
+
+            <!-- Authentic Ask Cortexa Deck (Positioned Outside the Card) -->
+            <div class="deck-outer-wrapper">
+                <div class="deck-matrix-frame">
+                    <div class="deck-left-actions">
+                        <button type="button" class="deck-btn-icon" aria-label="Tools">
+                            <span class="material-symbols-rounded">add</span>
+                        </button>
+                    </div>
+
+                    <div class="deck-input-chamber">
+                        <span class="typewriter-text" id="typewriterQuery"></span>
+                        <span class="typewriter-cursor"></span>
+                    </div>
+
+                    <div class="deck-right-actions">
+                        <button type="button" class="deck-btn-submit" id="deckSubmitBtn" aria-label="Submit Prompt">
+                            <span class="material-symbols-rounded">arrow_upward</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floating Clinical Synthesis Engine Output Card -->
+            <div class="glass-mockup-window spotlight-card">
+                <div class="spotlight"></div>
+                
+                <div class="mockup-header">
+                    <div class="window-dots"><span></span><span></span><span></span></div>
+                    <div class="window-title">Cortexa clinical synthesis engine</div>
+                </div>
+
+                <div class="mockup-body" id="mockupContentBody">
+                    <div class="mockup-header-row">
+                        <div class="mockup-title-group">
+                            <div class="mockup-tag-row">
+                                <div class="mockup-tags-cluster">
+                                    <span class="mockup-badge" id="cardBadge">
+                                        <span class="tag-desktop">CARDIOVASCULAR</span>
+                                        <span class="tag-mobile">CARD</span>
+                                    </span>
+                                    <span class="mockup-icd" id="cardIcd">
+                                        <span class="tag-desktop">ICD-10: I21.3</span>
+                                        <span class="tag-mobile">I21.3</span>
+                                    </span>
+                                    <span class="mockup-tier">
+                                        <span class="material-symbols-rounded" style="font-size: 14px; margin-right: 2px;">bolt</span>
+                                        <span class="tag-desktop">Real-Time</span>
+                                        <span class="tag-mobile">Live</span>
+                                    </span>
+                                </div>
+                                <div class="mockup-action-circle"><span class="material-symbols-rounded">favorite</span></div>
+                            </div>
+                            <h3 id="cardTitle">ST-Elevation Myocardial Infarction (STEMI)</h3>
+                        </div>
+                    </div>
+                    
+                    <div class="mockup-grid">
+                        <div class="mockup-panel">
+                            <h4 id="cardPanel1Title">Diagnostic Assessment & Acuity</h4>
+                            <ul class="mockup-list" id="cardPanel1List">
+                                <li><b>Primary Presentation:</b> Acute crushing retrosternal chest pain with diaphoresis.</li>
+                                <li><b>Red Flags:</b> Hemodynamic instability indicating cardiogenic shock.</li>
+                                <li><b>ECG Findings:</b> &gt;1mm ST elevation in contiguous leads II, III, aVF.</li>
+                            </ul>
+                        </div>
+                        <div class="mockup-panel">
+                            <h4 id="cardPanel2Title">Guideline-Directed Management</h4>
+                            <ul class="mockup-list" id="cardPanel2List">
+                                <li><b>STAT Therapy:</b> Aspirin 325mg PO chewed + Ticagrelor 180mg load.</li>
+                                <li><b>Reperfusion:</b> Primary PCI within 90 minutes of first medical contact.</li>
+                                <li><b>Adjunct:</b> Unfractionated Heparin 60 units/kg IV bolus.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Features Grid (3-Column Layout with Animated SVG Icons) -->
+    <section id="platform" class="features-section section-offset">
+        <div class="section-header reveal-up">
+            <h2 data-i18n="gridHeader">The Complete Clinical Suite</h2>
+            <p data-i18n="gridSub">Fully integrated modules designed for flawless clinical execution.</p>
+        </div>
+
+        <div class="feature-grid">
+            
+            <!-- Card 1: CDSS -->
+            <div class="feature-card glass-panel reveal-up spotlight-card">
+                <div class="spotlight"></div>
+                <div class="feature-icon-chamber blue">
+                    <svg class="advisor-animated-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                        <g class="advisor-cross">
+                            <path d="M12 9v6"></path>
+                            <path d="M9 12h6"></path>
+                        </g>
+                        <g class="advisor-spikes">
+                            <path d="M9 1v3"></path>
+                            <path d="M15 1v3"></path>
+                            <path d="M9 20v3"></path>
+                            <path d="M15 20v3"></path>
+                            <path d="M20 9h3"></path>
+                            <path d="M20 14h3"></path>
+                            <path d="M1 9h3"></path>
+                            <path d="M1 14h3"></path>
+                        </g>
+                    </svg>
+                </div>
+                <div class="card-text">
+                    <h3 data-i18n="c1Title">Clinical Decision Support System</h3>
+                    <p data-i18n="c1Desc">Execute specialized algorithmic clinical pathways for ER, ICU, Anesthesia, and Surgery. Generate expertly ranked, multi-tiered diagnostic differentials instantly.</p>
+                </div>
+            </div>
+
+            <!-- Card 2: Analysis Suite -->
+            <div class="feature-card glass-panel reveal-up delay-1 spotlight-card">
+                <div class="spotlight"></div>
+                <div class="feature-icon-chamber red">
+                    <svg class="analysis-animated-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                        <g class="ana-doc-lines">
+                            <line x1="8" y1="10" x2="16" y2="10"></line>
+                            <line x1="8" y1="14" x2="11" y2="14"></line>
+                        </g>
+                        <g class="ana-scan-glass">
+                            <circle cx="15" cy="15" r="4" fill="transparent"></circle>
+                            <line x1="17.8" y1="17.8" x2="22" y2="22"></line>
+                        </g>
+                    </svg>
+                </div>
+                <div class="card-text">
+                    <h3 data-i18n="c2Title">Clinical Analysis Suite</h3>
+                    <p data-i18n="c2Desc">Upload direct clinical files for medical OCR extraction and visual synthesis. Instantly interpret 12-lead ECGs, ABGs, complex lab panels, and radiological imaging.</p>
+                </div>
+            </div>
+
+            <!-- Card 3: Pharmacokinetic Matrix -->
+            <div class="feature-card glass-panel reveal-up delay-2 spotlight-card">
+                <div class="spotlight"></div>
+                <div class="feature-icon-chamber purple">
+                    <svg class="interaction-animated-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M8.5 2h7"></path>
+                        <path d="M10 2v7.31"></path>
+                        <path d="M14 9.3V1.99"></path>
+                        <path d="M14 9.3a6.5 6.5 0 1 1-4 0"></path>
+                        <g class="potion-fluid-group">
+                            <path d="M14 9.3a6.5 6.5 0 1 1-4 0" fill="currentColor" stroke="none" opacity="0.25"></path>
+                            <path d="M5.52 16h12.96"></path>
+                        </g>
+                        <circle class="potion-bubble bubble-1" cx="12" cy="15" r="1.5" fill="currentColor" stroke="none"></circle>
+                        <circle class="potion-bubble bubble-2" cx="9.5" cy="17" r="1" fill="currentColor" stroke="none"></circle>
+                        <circle class="potion-bubble bubble-3" cx="14.5" cy="17" r="1.5" fill="currentColor" stroke="none"></circle>
+                    </svg>
+                </div>
+                <div class="card-text">
+                    <h3 data-i18n="c3Title">Pharmacokinetic Matrix System</h3>
+                    <p data-i18n="c3Desc">Cross-check multidrug regimens with deterministic precision. Detect absolute contraindications, CYP-450 enzymatic collisions, and dangerous QTc prolongations.</p>
+                </div>
+            </div>
+
+            <!-- Card 4: Prescription & Documentation -->
+            <div class="feature-card glass-panel reveal-up spotlight-card">
+                <div class="spotlight"></div>
+                <div class="feature-icon-chamber green">
+                    <svg class="rx-animated-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                        <path class="rx-paper-base" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline class="rx-fold" points="14 2 14 8 20 8"></polyline>
+                        <path class="rx-letter-r" d="M8 12h3a2 2 0 1 0 0-4H8v10"></path>
+                        <path class="rx-slash-cross" d="M11 13l5 6"></path>
+                        <path class="rx-slash-tick" d="M16 13l-5 6"></path>
+                    </svg>
+                </div>
+                <div class="card-text">
+                    <h3 data-i18n="c4Title">Intelligent Prescription & Documentation</h3>
+                    <p data-i18n="c4Desc">Generate exact, guideline-concordant medical prescriptions utilizing authentic local market trade names. Automatically draft discharge summaries and specialist referrals.</p>
+                </div>
+            </div>
+
+            <!-- Card 5: Universal Patient Records -->
+            <div class="feature-card glass-panel reveal-up delay-1 spotlight-card">
+                <div class="spotlight"></div>
+                <div class="feature-icon-chamber warning">
+                    <svg class="patients-animated-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                        <defs>
+                            <clipPath id="cardPatientClip">
+                                <rect class="card-liquid-rect" x="0" y="24" width="24" height="24"></rect>
+                            </clipPath>
+                        </defs>
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="currentColor" stroke="none" clip-path="url(#cardPatientClip)"></path>
+                    </svg>
+                </div>
+                <div class="card-text">
+                    <h3 data-i18n="c5Title">Universal Patient Profile Archive</h3>
+                    <p data-i18n="c5Desc">Establish distinct patient parameters (CrCl, eGFR, Age, Weight, Child-Pugh) once. Cortexa dynamically auto-titrates all calculations globally across every workspace.</p>
+                </div>
+            </div>
+
+            <!-- Card 6: Medical Library -->
+            <div class="feature-card glass-panel reveal-up delay-2 spotlight-card">
+                <div class="spotlight"></div>
+                <div class="feature-icon-chamber cyan">
+                    <svg class="library-animated-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                        <g class="book-text-group">
+                            <path class="book-text text-left" d="M6 8h4M6 12h5M6 16h3" stroke-width="1.5" />
+                            <path class="book-text text-right" d="M18 8h-4M18 12h-5M18 16h-3" stroke-width="1.5" />
+                        </g>
+                    </svg>
+                </div>
+                <div class="card-text">
+                    <h3 data-i18n="c6Title">Medical Knowledge Database</h3>
+                    <p data-i18n="c6Desc">Query an exhaustive repository of evidence-based monographs, protocols, and physiological reasoning engines. Linked directly to live PubMed and OpenFDA literature.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Enterprise / Investor Scale Section (With Live Animated Numbers) -->
+    <section id="enterprise" class="enterprise-section section-offset reveal-up">
+        <div class="enterprise-container glass-panel spotlight-card">
+            <div class="spotlight"></div>
+            <div class="enterprise-content">
+                <h2 data-i18n="entTitle">
+                    <span class="sec-title-desktop">Engineered for Enterprise Scale</span>
+                    <span class="sec-title-mobile">Enterprise Scale</span>
+                </h2>
+                <p data-i18n="entSub">Cortexa is built to drastically reduce cognitive load, mitigate medico-legal risk, and accelerate clinical throughput. By integrating deterministic physiological algorithms with LLM reasoning, we deliver unparalleled diagnostic safety at scale.</p>
+                
+                <div class="metric-grid">
+                    <!-- Metric 1: Zero PHI -->
+                    <div class="metric-card glass-panel spotlight-card">
+                        <div class="spotlight"></div>
+                        <div class="metric-icon-wrap">
+                            <span class="material-symbols-rounded">lock_reset</span>
+                        </div>
+                        <h4 class="counter-display" data-target="0" data-suffix=" B" data-decimals="0">0 B</h4>
+                        <span class="metric-label" data-i18n="m1Label">Server PHI Stored</span>
+                        <p class="metric-sub" data-i18n="m1Sub">Zero external data retention. Complete client-side IndexedDB isolation.</p>
+                    </div>
+
+                    <!-- Metric 2: Latency without < -->
+                    <div class="metric-card glass-panel spotlight-card">
+                        <div class="spotlight"></div>
+                        <div class="metric-icon-wrap">
+                            <span class="material-symbols-rounded">speed</span>
+                        </div>
+                        <h4 class="counter-display" data-target="1.8" data-suffix="s" data-decimals="1">1.8s</h4>
+                        <span class="metric-label" data-i18n="m2Label">Differential Latency</span>
+                        <p class="metric-sub" data-i18n="m2Sub">Real-time reasoning across multi-tiered clinical differential pathways.</p>
+                    </div>
+
+                    <!-- Metric 3: Grounded -->
+                    <div class="metric-card glass-panel spotlight-card">
+                        <div class="spotlight"></div>
+                        <div class="metric-icon-wrap">
+                            <span class="material-symbols-rounded">verified</span>
+                        </div>
+                        <h4 class="counter-display" data-target="100" data-suffix="%" data-decimals="0">100%</h4>
+                        <span class="metric-label" data-i18n="m3Label">Evidence-Grounded</span>
+                        <p class="metric-sub" data-i18n="m3Sub">All pharmacological calculations and triage verified against clinical consensus.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deep Security Banner -->
+    <section id="security" class="deep-banner section-offset reveal-up">
+        <div class="banner-container glass-panel spotlight-card">
+            <div class="spotlight"></div>
+            <span class="material-symbols-rounded banner-icon">shield_lock</span>
+            <h2 data-i18n="secureTitle">
+                <span class="sec-title-desktop">Absolute Privacy & Data Isolation</span>
+                <span class="sec-title-mobile">Absolute Privacy</span>
+            </h2>
+            <p data-i18n="secureSub">Your medical workflows remain strictly yours. Patient archives and historical queries are executed locally via secure IndexedDB storage. No PHI touches external servers, maintaining total adherence to professional medical privacy protocols (HIPAA/GDPR).</p>
+            <a href="https://use-cortexa.app" class="btn-launch large mt-8" data-i18n="ctaBtn">Launch Secure Workspace</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="logo.png" alt="Cortexa Logo" class="footer-logo">
+                <span>Cortexa</span>
+            </div>
+            <div class="footer-legal">
+                <p data-i18n="footerDisc"><strong>Disclaimer:</strong> Cortexa AI is an advanced medical intelligence computational tool. It does NOT constitute medical advice, diagnosis, or treatment. It is strictly designed for informational, educational, and computational assistance for licensed healthcare professionals.</p>
+                <div class="copyright" data-i18n="footerCopy">&copy; 2026 Cortexa Medical Intelligence. All rights reserved.</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
